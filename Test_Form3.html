@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ghi chú hợp đồng</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../XuanHoang_Task/style.css">
+  <link rel="stylesheet" type="text/css" href="../XuanHoang_Task/form3.css">
+
+	<style type="text/css">
+	  	/*input[type=checkbox]
+		{	  
+		  -ms-transform: scale(2); 
+		  -moz-transform: scale(2);  FF 
+		  -webkit-transform: scale(2); /
+		  -o-transform: scale(2); 
+		  padding: 10px;
+		}*/
+	</style>
+</head>
+<body>
+
+<div class="container">		
+  	<button type="button" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="fas fa-sort"></i> Sắp xếp</button>
+		
+	<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="glyphicon glyphicon-remove mr5"></i> Xóa</button>
+	<button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px"><i class="glyphicon glyphicon-edit mr5"></i> Sửa </button>
+	 
+	<button type="button" class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="glyphicon glyphicon-plus mr5"></i>
+	Thêm
+	</button>
+	
+	<div class="modal fade" id="myModal" role="dialog" style="margin-top: 10px">
+	    <div class="modal-dialog modal-lg">
+	      	<div class="modal-content">
+		        <div class="header" style="margin: 15px ; margin-bottom: 0px">
+		          <button type="button" class="close" data-dismiss="modal"> <img src="btn_close.jpg" style="max-width: 30px; margin-right: 15px"></button>
+		          <h4 class="modal-title " style="font-weight: bold; margin-left: 10px; font-size: 15px ; margin-top: -5px">
+		          <i class="fa fa-plus-circle" style="color: red; font-size: 22px "></i>
+		          Ghi chú hợp đồng
+		      		</h4>
+		      		<hr style="margin-top: -30">
+		        </div>
+
+	        	<div class="col-md-12">
+			        <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-right:16px;     width: 70px">
+						
+					<i class="far fa-save"></i> Lưu
+					</button>
+
+					<button type="button" style=" margin-right: 12px; width: 70px" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#myModal" >
+						<i class="fas fa-edit"></i>
+					Sửa
+					</button>
+
+					<button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModal" style=" margin-right: 12px;" >
+						<i class="glyphicon glyphicon-plus mr5"></i>
+					Thêm 
+					</button>
+	        	</div>
+
+		        <div class="body" style="margin-top: -15px">			
+					<br><br><br><br>
+
+					<div class="form-group col-md-12">					
+							<p class="form-group   col-md-2"><i class="fas fa-file-signature"  font-size: 11px; padding-top: 10px; padding-left: 15px"></i> &nbsp Mã HĐ</p>
+						
+							<form>
+							    <div class="form-group col-md-4">
+							      	<select class="form-control" id="sel1" style=" font-size: 11px" name="nhomdichvu">
+								        <option>Chọn mã hợp đồng...</option>
+								        <option>HD1</option>
+								        <option>HD2/option>
+								        <option>HD3</option>
+								        <option>HD4</option>
+							      	</select>
+							    </div>
+						  	</form>
+					
+						<p class="form-group col-md-1"><i class="fas fa-user" style="font-size: 11px; padding-top: 10px "></i>&nbsp User</p>
+						
+						<div class=" form-group col-md-5">
+							<input type="text" class="form-control" id="usr" placeholder="Nhập tên user..."  name="madichvu" value="" style=" font-size: 11px">
+						</div>
+					</div>
+
+
+					<div class="col-md-12 col-sm-6 col-xs-12">
+						<p  class="col-md-2"><i class="fas fa-book-open"  style=" font-size: 11px "></i> &nbsp Ghi chú </p>
+
+		          		<div class="form-group col-md-10">
+					  		<textarea class="form-control note" rows="5" id="comment" placeholder="Chú thích..." 
+					  		 style=" font-size: 12px; " name="ghichu"></textarea>
+					  		<p class="pull-right" style=" font-size: 12px">250/250 ký tự</p>
+						</div>
+			        </div>
+				
+		          	
+			   		<div class="col-md-12" style="margin-bottom: 30px">		   				   					   			
+			   			<div class="form-group col-md-8">
+			   				<span class="col-md-3" style="font-weight: bold">Tìm kiếm</span >
+					  		<input class="form-control col-md-5" type="text" class="form-control" id="usr" placeholder="Nhập thông tin..." style="max-width: 227px; margin-left: 8px">	
+			   				<span><button type="button" class="btn btn-info btn-md"><i class="fas fa-search"></i></button></span>
+			   			</div>
+
+			   			<div class="col-md-4">
+			   				<button type="button" class="btn btn-danger btn-md pull-right" data-dismiss="modal"  style="font-size: 11px; font-weight: bold; width:70px"><i class="far fa-trash-alt"></i>&nbsp  Xóa
+			   				</button>
+			   			</div>	
+					</div>
+
+					<br>
+					<div class="container">
+						<div class="row">
+						  <div class="table-responsive table-striped table-hover col-md-9">          
+							  	<table class="table">
+								    <thead>
+								      <tr>
+								        <th>#</th>
+								        <th>Firstname</th>
+								        <th>Lastname</th>
+								        <th>Age</th>
+								        <th>City</th>
+								        <th>Country</th>
+								      </tr>
+								    </thead>
+								    <tbody>
+								      <tr>
+								        <td>1</td>
+								        <td>Anna</td>
+								        <td>Pitt</td>
+								        <td>35</td>
+								        <td>New York</td>
+								        <td>USA</td>
+								      </tr>
+
+								      <tr>
+								        <td>1</td>
+								        <td>Anna</td>
+								        <td>Pitt</td>
+								        <td>35</td>
+								        <td>New York</td>
+								        <td>USA</td>
+								      </tr>
+								    </tbody>
+								</table>
+							</div>
+						</div>
+					</div>								  
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

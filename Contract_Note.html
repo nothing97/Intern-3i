@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Services_note</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../XuanHoang_Task/style.css">
+
+</head>
+<body>
+
+<div class="container">		
+  	<button type="button" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="fas fa-sort"></i> Sắp xếp</button>
+		
+	<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="glyphicon glyphicon-remove mr5"></i> Xóa</button>
+	<button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px"><i class="glyphicon glyphicon-edit mr5"></i> Sửa </button>
+	 
+	<button type="button" class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="glyphicon glyphicon-plus mr5"></i>
+	Thêm
+	</button>
+	
+	<div class="modal fade" id="myModal" role="dialog" style="margin-top: 70px">
+	    <div class="modal-dialog modal-lg">
+	      	<div class="modal-content">
+		        <div class="header" style="margin: 15px ; margin-bottom: 0px">
+		          <button type="button" class="close" data-dismiss="modal"> <img src="btn_close.jpg" style="max-width: 30px; margin-right: 15px"></button>
+		          <h4 class="modal-title " style="font-weight: bold; margin-left: 10px; font-size: 15px ; margin-top: -5px">
+		          <i class="fa fa-plus-circle" style="color: red; font-size: 25px "></i>
+		          
+		          Thêm dịch vụ
+		      		</h4>
+		      		<hr style="margin-top: -30">
+		        </div>
+
+	        	<div class="col-md-12">
+			        <button type="button" class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-right:16px;     width: 70px">
+						<i class="far fa-trash-alt"></i>
+					Lưu
+					</button>
+
+					<button type="button" style=" margin-right: 12px; width: 70px" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#myModal" >
+						<i class="fas fa-edit"></i>
+					Sửa
+					</button>
+
+					<button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModal" style=" margin-right: 12px;" >
+						<i class="glyphicon glyphicon-plus mr5"></i>
+					Thêm 
+					</button>
+	        	</div>
+
+		        <div class="body" style="margin-top: -15px">
+				
+					<br><br><br><br>
+
+					<div class="form-group col-md-6">
+						
+							<p class="form-group   col-md-4"><i class="fas fa-file-signature" style="color: black; font-size: 11px; padding-top: 10px; padding-left: 15px"></i> &nbsp Tên dịch vụ</p>
+						
+						<div class=" form-group col-md-8">
+							<input type="text" class="form-control" id="usr" placeholder="Nhập tên dịch vụ..." name="tendichvu" value="" style=" font-size: 11px">
+						</div>
+					</div>
+
+					<div class="form-group col-md-6">
+						
+							<p style=" padding-left: 37px" class="form-group col-md-4"><i class="fas fa-qrcode"  style="color: black; font-size: 11; padding-top: 10px"></i> &nbsp Mã dịch vụ</p>
+						
+						<div class=" form-group col-md-8">
+							<input type="text" class="form-control" id="usr" placeholder="Nhập mã dịch vụ..."  name="madichvu" value="" style=" font-size: 11px">
+						</div>
+					</div>
+
+					
+					<div class="form-group col-md-6" style="margin-top: -15px">
+						
+							<p class="form-group   col-md-4"><i class="fas fa-file-signature" style="color: black; font-size: 10px; padding-top: 10px; padding-left: 15px"></i> &nbsp Đơn vị</p>
+						
+						<form>
+						    <div class="form-group col-md-8">
+						      	<select class="form-control" id="sel1" style=" font-size: 11px" name="nhomdichvu">
+							        <option>Chọn đơn vị...</option>
+							        <option>VND</option>
+							        <option>USD</option>
+							        <option>Yen</option>
+							        <option>Ruby</option>
+						      	</select>
+						    </div>
+					  	</form>
+					</div>
+
+					<div class="form-group col-md-6" style="margin-top: -15px">
+						
+							<p style=" padding-left: 37px" class="form-group col-md-4"><i class="fas fa-qrcode"  style="color: black; font-size: 12; padding-top: 10px"></i> &nbsp Nhóm DV</p>
+						<form>
+						    <div class="form-group col-md-8">
+						      	<select class="form-control" id="sel1" style=" font-size: 11px" name="nhomdichvu">
+							        <option>Chọn dịch vụ...</option>
+							        <option>VND</option>
+							        <option>USD</option>
+							        <option>Yen</option>
+							        <option>Ruby</option>
+						      	</select>
+						    </div>
+					  	</form>
+				  	</div>
+
+				<div class="col-md-12" style="margin-top: -15px">
+					<p  class="col-md-2"><i class="fas fa-book-open"  style="color: black; font-size: 11px; padding-left: 15px"></i> &nbspGhi chú </p>
+
+	          		<div class="form-group col-md-10">
+				  		<textarea class="form-control" rows="5" id="comment" placeholder="Chú thích..." 
+				  		 style=" font-size: 12px;  margin-left: -5px; width: 698px;" name="ghichu"></textarea>
+				  		<p style="margin-left : 616px; font-size: 12px">250/250 ký tự</p>
+					</div>
+		        </div>
+				
+		          	
+		   
+
+		        <div class="footer" style="margin-bottom: 20px">
+		          <button type="button" class="btn btn-primary pull-right" data-dismiss="modal"  style="margin-right: 30px; font-size: 11px; font-weight: bold; margin-bottom: 20px"><i class="far fa-save"></i>&nbsp  Xóa</button>
+		          
+		        </div>
+
+				<div class="container">
+
+				  <table class="table  table-responsive table-hover table-striped " style="max-width: 840px; margin-left: 15px; margin-bottom: 30px">
+				    <thead class="text-center">
+				      <tr>
+				        <th>No</th>
+				        <th>Note</th>
+				        <th>Contract code</th>
+				        <th>Tags</th>
+				        <th>Created by</th>
+				        <th>Created time</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr>
+				        <th><input type="checkbox" name=""></th>
+
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				      </tr>
+				      <tr>
+				        <th><input type="checkbox" name="" style="width:"></th>
+
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				      </tr>
+				      <tr>
+				        <th><input type="checkbox" name=""></th>
+
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				        <td>Nothing</td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</div>
+	    	</div>
+		</div>
+	</div>								  
+</div>
+</body>
+</html>

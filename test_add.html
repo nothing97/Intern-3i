@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="widtd=device-widtd, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var no=0;
+    var dataList = new Array();
+
+    $("#home_menu").click(function(){
+        $("#user_management_panel").show();
+        $("#add_user_panel").show();
+    });
+
+    $("#user_management_menu").click(function(){
+       $("#user_management_panel").show();
+        $("#add_user_panel").hide(); 
+    });
+
+    $("#add_user_menu").click(function(){
+       $("#user_management_panel").hide();
+        $("#add_user_panel").show(); 
+    });
+
+    $("#add_user").click(function(){
+      var fullname=$("[name=fullname]").val();
+      var address=$("[name=address]").val();
+      var age=$("[name=age]").val();
+      var email=$("[name=email]").val();
+      var phone_number=$("[name=phone_number]").val();
+      var checkbox=$("[type=checkbox]").val();
+
+      dataList[dataList.length]={
+        "fullname":fullname,
+        "address":address,
+        "age":age,
+        "email":email,
+        "phone_number":phone_number
+      };
+
+      no++;
+
+      alert("Thêm thành công");
+      $("#dataList").append("<tr>"+
+                "<td>"+no+"</td>"+
+                "<td>"+fullname+"</td>"+
+                "<td>"+address+"</td>"+
+                "<td>"+age+"</td>"+
+                "<td>"+email+"</td>"+
+                "<td>"+phone_number+" </td>"+
+                "<td> "+checkbox+" </td>"+
+              "</tr>")
+    });
+
+    $("#sort").click(function(){
+        //sort- selection sort
+        for ( i = 0; i < dataList.length-1; i++) {
+          for ( j = i+1; j < dataList.length; j++) {
+            if (dataList[i].fullname > dataList[j].fullname) 
+            {
+              var tmp=dataList[i];
+              dataList[i]=dataList[j];
+              dataList[j]=tmp;
+            }
+          }
+        }
+
+        //empty
+        // $(#dataList).empty();
+
+        //add users again
+        for ( i = 0; i < dataList.length; i++) {
+          // no=i+1;
+          $("#dataList").append("<tr>"+
+                "<td>"+no+"</td>"+
+                "<td>"+dataList[i].fullname+"</td>"+
+                "<td>"+dataList[i].address+"</td>"+
+                "<td>"+dataList[i].age+"</td>"+
+                "<td>"+dataList[i].email+"</td>"+
+                "<td>"+dataList[i].phone_number+" </td>"+
+              "</tr>")
+        }
+    });   
+  });
+</script>
+<body>
+  <ul class="breadcrumb">
+    <li class="active" id="home_menu">Home</li>
+    <li id="user_management_menu">User management</li>
+    <li id="add_user_menu">Add user</li>
+  </ul>
+<div class="container" id="user_management_panel">
+    <div class="panel panel-primary">
+      <div class="panel-heading">User management</div>
+      <div class="panel-body">
+          <table class="table table-striped table-hover table-reponsive">
+            <thead >
+              <tr>
+                <td>no</td>
+                <td>fullname</td>
+                <td>Address</td>
+                <td>Age</td>
+                <td>Email</td>
+                <td>Phone number</td>
+                <td><input type="checkbox" name=""></td>
+              </tr>
+            </thead>
+
+            <tbody id="dataList">
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div> 
+
+
+<div class="container" id="add_user_panel">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Add user</div>
+        <div class="panel-body">
+        <form class="form"; method="get" action="#add_user">
+          <div class="col-md-2"> full name</div>
+          <div class="col-md-10"><input type="text"class="form-control"  name="fullname" value="hoang" style="max-width: 500px" >
+              </div>
+
+          <div class="col-md-2"> address</div>  
+          <div class="col-md-10"><input type="text" class="form-control"  name="address" value="nothing" style="max-width: 500px"></div>
+
+          <div class="col-md-2"> age </div> 
+            <div class="col-md-10"><input type="text" class="form-control" name="age" value="20" style="max-width: 500px"></div>
+
+          <div class="col-md-2"> email</div>  
+            <div class="col-md-10"><input type="email" class="form-control" name="email" value="hoang97@gmail.com" style="max-width: 500px"></div>
+
+          <div class="col-md-2"> phone number</div>  
+          <div class="col-md-10"><input type="text"class="form-control"  name="phone_number" value=" 08490568" style="max-width: 500px"> </div>
+
+            <button type="button" id="add_user">Add user</button>
+            <button type="button" id="sort">sort</button>
+            <button type="reset" value="reset">reset</button>
+          </form>
+          </div>         
+      </div>          
+</div>
+
+</body>
+</html>

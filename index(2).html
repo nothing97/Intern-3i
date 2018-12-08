@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>contract_attribute</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../XuanHoang_Task/style.css">
+
+  <style type="text/css">
+    body {
+        font-family: "Open Sans", sans-serif;
+    }
+    h1 {
+        margin-bottom: 0;
+        font-weight: bold;
+    }
+    .breadcrumbTitle li {
+        float: left;
+        padding-left: 5px;
+        padding-top: 10px;
+        font-size: 12px;
+    }
+    .breadcrumbTitle li a {
+        color: gray;
+    }
+    .breadcrumbTitle li span {
+        color: gray;
+        font-size: 10px;
+    }
+    .form-control {
+        border-radius: 5px !important;
+        background-color: #fff;
+    }
+    .form-group input, .ui-select-toggle, .ui-select-toggle:hover {
+        background: #fff !important;
+        font-size: 12px;
+    }
+    .form-control.ui-select-search.ng-pristine.ng-valid.ng-empty.ng-touched {
+        width: 100% !important;
+    }
+    .ng-touched.open {
+        width: 100%;
+    }
+    div.form-group {
+        padding-right: 0px;
+    }
+    .table thead tr th {
+        font-size: 10px !important;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        color: gray;
+    }
+    .form-control.ui-select-search.ng-pristine.ng-valid.ng-empty.ng-touched, .table td, .table th {
+        font-size: 12px;
+    }
+    .table-scrollable {
+        border: 0;
+        margin: 0 !important;
+    }
+    table.dataTable thead td, table.dataTable thead th {
+        border-bottom: 0;
+    }
+    table.table thead .sorting, table.table thead .sorting_asc, table.table thead .sorting_asc_disabled, table.table thead .sorting_desc, table.table thead .sorting_desc_disabled {
+        background: 0 0;
+    }
+    .btn-custom {
+        border-radius: 5px !important;
+        margin-right: 5px;
+        font-size: 11px;
+    }
+    .control-label{
+        font-size: 10px;
+    }
+</style>
+</head>
+
+<body>
+<div style="margin: 20px;">
+    <div>
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-4 ">
+                    <h1>Nhà cung cấp</h1>
+                    <ul class="breadcrumbTitle" style="margin-left: -5px; margin-top: -5px;">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="#">Nhà cung cấp</a>
+                            <span>&gt;</span>
+                        </li>
+                        <li>
+                            <a href="#/customer">Danh sách nhà cung cấp</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8 text-center">
+                    <div class="btn-group pull-right actions" style="margin: 2px;">
+                        <button ng-click="add()" type="submit" class="btn btn-custom green">
+                            <i class="fa fa-plus mr5"></i>
+                            Thêm
+                        </button>
+                        <button ng-click="edit()" type="submit" class="btn btn-custom blue">
+                            <i class="fa fa-edit mr5"></i>
+                            Sửa
+                        </button>
+                        <button ng-click="deleteChecked()" type="submit" class="btn btn-custom red">
+                            <i class="fa fa-close mr5"></i>
+                            Xoá
+                        </button>
+                        <button ng-click="importExcel()" type="submit" class="btn btn-custom green-dark">
+                            <i class="fa fa-upload mr5"></i>
+                            Import Excel
+                        </button>
+                        <button ng-click="exportExcel()" type="submit" class="btn btn-custom green-dark">
+                            <i class="fa fa-download mr5"></i>
+                            Export to Excel
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding: 10px 15px; margin-top: 10px">
+                <div class="pannel-menu theme-primary">
+                    <form name="searchform" method="post" ng-validate="validationOptions">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 mb10 form-group">
+                                <label class="control-label">Tên nhà cung cấp</label>
+                                <input ng-model="model.suppliername" class="form-control" type="text" placeholder="Tên khách hàng..." />
+                            </div>
+                            <div class="col-md-2 col-sm-2 mb10 form-group">
+                                <label class="control-label">Thư điện tử</label>
+                                <input ng-model="model.supplieremail" class="form-control" type="text" placeholder="Thư điện tử..." />
+                            </div>
+                            <div ng-controller="index as model" class="col-md-3 col-sm-3 mb10 form-group">
+                                <label class="control-label">Nhóm nhà cung cấp</label>
+                                <ui-select tagging ng-model="model.suppliergroup" theme="bootstrap">
+                                    <ui-select-match placeholder="--Chọn nhóm nhà cung cấp--">{{$select.selected.value}}</ui-select-match>
+                                    <ui-select-choices repeat="val in customergroup.values | filter: $select.search">
+                                        {{val.value}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <div ng-controller="index as model" class="col-md-3 col-sm-3 mb10 form-group">
+                                <label class="control-label">Trạng thái</label>
+                                <ui-select tagging ng-model="model.status" theme="bootstrap">
+                                    <ui-select-match placeholder="--Chọn trạng thái--">{{$select.selected.value}}</ui-select-match>
+                                    <ui-select-choices repeat="val in status.values | filter: $select.search">
+                                        {{val.value}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 mb10 form-group" style="padding-top: 23px">
+                                <button ng-click="search()" class="btn blue" style="border: 0px">
+                                    <i class="fa fa-search"></i>
+                                    Tìm kiếm
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #fff; padding:5px 15px; border-radius: 5px;">
+            <table class="table dataTable table-hover table-striped"
+                   datatable
+                   dt-options="dtOptions"
+                   dt-columns="dtColumns"
+                   dt-instance="dtInstance"
+                   id="tblData">
+            </table>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

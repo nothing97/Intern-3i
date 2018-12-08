@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Services_cat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../XuanHoang_Task/style.css">
+
+</head>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var no=0;
+
+    $("#add_service").click(function(){
+      var tendichvu=$("[name=tendichvu]").val();
+      var madichvu=$("[name=madichvu]").val();
+      var donvi=$("[name=donvi]").val();
+      var nhomdichvu=$("[name=nhomdichvu]").val();
+      var ghichu=$("[name=ghichu]").val();
+      no++;
+      alert("Thêm thành công");
+      $("#dataList").append("<tr>"+
+                "<td>"+no+"</td>"+
+                "<td>"+tendichvu+"</td>"+
+                "<td>"+madichvu+"</td>"+
+                "<td>"+donvi+"</td>"+
+                "<td>"+nhomdichvu+"</td>"+
+                "<td>"+ghichu+"</td>"+
+              "</tr>")
+    });   
+  });
+</script>
+
+<body>
+
+<div class="container">
+	<div class="panel-group">
+	    <div class="panel panel-primary">
+	      	<div class="panel-heading" style="font-size: 20px">Thông tin chi tiết dịch vụ</div>
+	      	<div class="panel-body">
+	      		<div class="table-responsive">          
+					<table class="table table-bordered table-striped table-hover table-responsive">
+					    <thead style="background-color: #00CC66">
+					      	<tr>
+						        <th>no</th>
+						        <th>Tên dịch vụ</th>
+						        <th>Mã dịch vụ</th>
+						        <th>Đơn vị</th>
+						        <th>Nhóm dịch vụ </th>
+						        <th>Ghi chú</th>
+					      	</tr>
+					    </thead>
+
+					    <tbody id="dataList">
+					      	
+					    </tbody>
+					</table>
+				</div>
+	      	</div>
+	    </div>
+  	</div>
+		
+  	<button type="button" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="fas fa-sort"></i> Sắp xếp</button>
+		
+	<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="glyphicon glyphicon-remove mr5"></i> Xóa</button>
+	<button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px"><i class="glyphicon glyphicon-edit mr5"></i> Sửa </button>
+	 
+	<button type="button" class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#myModal" style="margin-left:10px">
+		<i class="glyphicon glyphicon-plus mr5"></i>
+	Thêm
+	</button>
+	
+	<div class="modal fade" id="myModal" role="dialog" style="margin-top: 70px">
+	    <div class="modal-dialog">
+	      	<div class="modal-content">
+		        <div class="header" style="margin: 15px ; margin-bottom: 50px">
+		          <button type="button" class="close" data-dismiss="modal"> <img src="btn_close.jpg" style="max-width: 22px"></button>
+		          <h4 class="modal-title " style="font-weight: bold; margin-left: 10px; font-size: 15px ">
+		          <i class="fa fa-plus-circle" style="color: red; font-size: 20px; "></i>
+		          &nbsp
+		          Thêm dịch vụ
+		      		</h4>
+		        </div>
+
+		        <div class="body">
+
+		          	<p style=" padding-left: 37px" class="col-md-4"><i class="fas fa-file-signature" style="color: black; font-size: 12"></i> &nbsp Tên dịch vụ</p>
+		          		<div class="form-group col-md-8">
+					  		<input type="text" class="form-control" id="usr" placeholder="Nhập tên dịch vụ..." name="tendichvu" value="" style="max-width: 340px; font-size: 12px">
+						</div>
+		          	
+
+		          	<p style=" padding-left: 37px" class="col-md-4"><i class="fas fa-qrcode"  style="color: black; font-size: 12"></i> &nbsp Mã dịch vụ</p>
+		          		<div class="form-group col-md-8">
+					  		<input type="text" class="form-control" id="usr" placeholder="Nhập mã dịch vụ..."  name="madichvu" value="" style="max-width: 340px; font-size: 12px">
+						</div>
+		         
+		          	<p style=" padding-left: 37px" class="col-md-4"><i class="fab fa-mizuni" style="color: black; font-size: 12"></i> &nbsp Đơn vị</p>
+		          		
+					<form>
+					    <div class="form-group col-md-8">
+					      	<select class="form-control" id="sel1" style="max-width: 340px; font-size: 12px" name="nhomdichvu">
+						        <option>VND</option>
+						        <option>USD</option>
+						        <option>Yen</option>
+						        <option>Ruby</option>
+					      	</select>
+					    </div>
+				  	</form>
+						
+
+		          	<p style=" padding-left: 37px" class="col-md-4"><i class="fas fa-archive" style="color: black; font-size: 12"></i> &nbsp Nhóm dịch vụ
+		          	<form>
+					    <div class="form-group col-md-8">
+					      	<select class="form-control" id="sel1" style="max-width: 340px;  font-size: 12px" name="nhomdichvu">
+						        <option>masssage...</option>
+						        <option>eat</option>
+						        <option>play game</option>
+						        <option>music</option>
+						        <option>drink</option>
+						        <option>movie</option>
+					      	</select>
+					    </div>
+				  	</form>
+		          	</p>
+
+		          	<p style=" padding-left: 37px" class="col-md-4"><i class="fas fa-book-open"  style="color: black; font-size: 13px"></i> &nbsp Ghi chú
+		          		<div class="form-group col-md-8">
+					  		<textarea class="form-control" rows="5" id="comment" placeholder="Chú thích..." 
+					  		 style="max-width: 340px; font-size: 12px" name="ghichu"></textarea>
+					  		<p style="margin-left : 250px; font-size: 12px">250/250 ký tự</p>
+						</div>
+		          	</p>
+		          	
+		        </div>
+
+		        <div class="footer" style="margin-bottom: 20px">
+		          <button type="button" class="btn btn-default " data-dismiss="modal"  style="margin-left: 415px; font-size: 12px; font-weight: bold"> <i class="fas fa-times"></i> Hủy </button>
+		          <button type="button" class="btn btn-danger " data-dismiss="modal" id="add_service"; style="font-size: 12px; font-weight: bold"><i class="fas fa-plus"></i> Thêm </button>
+		        </div>
+
+		        <!-- <div class="container" id="user_management_panel" style="max-width: 550px">
+				    <div class="panel panel-primary">
+				      <div class="panel-heading">thông tin chi tiết dịch vụ </div>
+				      <div class="panel-body">
+				          <table class="table table-striped table-hover table-reponsive">
+				            <thead >
+				              <tr>
+				                <td>no</td>
+				                <td>fullname</td>
+				                <td>Address</td>
+				                <td>Age</td>
+				                <td>Email</td>
+				                <td>Phone number</td>
+				                <td><input type="checkbox" name=""></td>
+				              </tr>
+				            </thead>
+
+				            <tbody id="dataList">
+				              
+				            </tbody>
+				          </table>
+				        </div>
+				      </div>
+				</div>  -->
+				
+	    	</div>
+		</div>
+	</div>								  
+</div>
+</body>
+</html>

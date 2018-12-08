@@ -1,0 +1,46 @@
+
+    .modal-footer {
+  padding: @modal-inner-padding;
+  text-align: right; // right align buttons
+
+  &:extend(.clearfix all); // clear it in case folks use .pull-* classes on buttons
+
+  // Properly space out buttons
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: 1;
+}
+
+
+
+body {
+   font-family: "Open Sans", sans-serif !important;
+
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff; 
+}
+
+p,input{
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 13px;
+}
+
+input[type=checkbox]
+{
+  / Double-sized Checkboxes /
+  -ms-transform: scale(2); / IE /
+  -moz-transform: scale(2); / FF /
+  -webkit-transform: scale(2); / Safari and Chrome /
+  -o-transform: scale(2); / Opera /
+  padding: 10px;
+}
